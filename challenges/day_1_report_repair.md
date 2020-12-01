@@ -275,7 +275,14 @@ If value 2 exists and the .find stops, then the iteration breaks and we get our 
 
 
 ## What is the Big O complexity of your solution?
-A little less than On^2
+A little less than On^2 Since we are looping through each each value at -1 position, then iterating through the list to find its compliment.
+
+## How do we make this more efficient?
+We could probably get it down to O(n) if we figured out a way to remember the values and store them.
+
+We can do that through hash mapping that way we iterate through the problem only once, but, we're indexing the values in a hash so that we can quickly look them up.
+
+## Pseudo code
 
 
 -------------------------------------------------
@@ -285,3 +292,60 @@ The Elves in accounting are thankful for your help; one of them even offers you 
 Using the above example again, the three entries that sum to 2020 are 979, 366, and 675. Multiplying them together produces the answer, 241861950.
 
 In your expense report, what is the product of the three entries that sum to 2020?
+
+
+----------------------------------------------
+## Rewrite the question in your own words:
+From the same list of numbers given, find 3 values that add up to 2020, then the answer is the product of those three numbers
+
+
+## What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
+* We can take the input in whatever datatype we want
+* There is only one right answer
+* Numbers are all positive
+* No 0's
+* It has to be 3 different numbers, it can't be the same number
+* The list is unique
+* There has to be an answer
+
+
+## What are your initial thoughts about this problem? (high level design, 2-3 sentences)
+We are going to have to sort the list of inputs first. Probably have to start at the first value, then move in from each side to see if there are two values in the mix that add up to 2020 - first value.
+
+## Thoughts on how to solve
+So, for example we will start at index 0.
+The value at index 0 is 299.
+We will then examine the value at index 1 which is 366 and the last value which is 1721.
+When we add up all three of these values we get 2386 which is bigger than our desired 2020, so we have to check for a smaller number. This means we need to increment down from the last value. If the sum of the three was less than 2020, then we know we have to increment from the front side up one.
+
+We should keep going through all the numbers in the array until we reach the middle and we don't find a set of numbers. Then we can move onto the next number in the iteration.
+
+
+## How would you identify the elements of this problem?
+- [X] Searching of Data
+- [ ] Sorting of Data
+- [ ] Pattern Recognition
+- [ ] Build/Navigate a Grid
+- [X] Math
+- [ ] Language API knowledge
+- [ ] Optimization
+
+
+## Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
+I think an array would be the best for this problem
+
+
+## Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+* First we will have to sort the list of numbers
+* Then we are going to iterate over each index of the array using a .each
+* We can do this by iterating over the size of the array, but we will have to start at 0 and end at the size of the array - 3, because there are 3 values we will be looking for.
+* So, value_1 is going to be the value at index 0 of the array
+* The second value we will be looking at is at the next index, which would be the index + 1
+* The third value we will be looking at is the last value of the array, which is the array.size - 1
+* If we add all 3 values up and it is greater than 2020, then we will need to lower the sum by looking at the next highest value or the second to last value in the array by subtracting another 1 from index 3
+* If the sum of the 3 values is less than 2020, then we can increment up by looking at the next value from the front by 1 by looking at the index 2 + 1
+* If the sum of the three values is 2020, then we return their product
+* If there is no answer, we return that there isn't an answer
+
+
+## What is the Big O complexity of your solution?
