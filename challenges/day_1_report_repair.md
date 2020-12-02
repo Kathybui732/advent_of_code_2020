@@ -349,3 +349,4 @@ I think an array would be the best for this problem
 
 
 ## What is the Big O complexity of your solution?
+O(n^2)
