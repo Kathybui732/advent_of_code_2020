@@ -14,6 +14,7 @@ class PasswordPhilosophy
     valid_password_counter
   end # OVERALL O(n^2)
 
+  # This was just so I could visually see which password datasets were being selected for sound of mind haha. Just remove the .size
   def find_all_valid(password_list)
     x = password_list.select do |password_data|
       letter_range = password_data[0] # O(n)
