@@ -1071,3 +1071,47 @@ Wewould check the element in position 2 to see how many times the value in posit
 
 
 ## What is the Big O complexity of your solution?
+O(n^2)
+
+
+-----------------------------------------------
+
+# --- Part Two ---
+While it appears you validated the passwords correctly, they don't seem to be what the Official Toboggan Corporate Authentication System is expecting.
+
+The shopkeeper suddenly realizes that he just accidentally explained the password policy rules from his old job at the sled rental place down the street! The Official Toboggan Corporate Policy actually works a little differently.
+
+Each policy actually describes two positions in the password, where 1 means the first character, 2 means the second character, and so on. (Be careful; Toboggan Corporate Policies have no concept of "index zero"!) Exactly one of these positions must contain the given letter. Other occurrences of the letter are irrelevant for the purposes of policy enforcement.
+
+Given the same example list from above:
+
+1-3 a: abcde is valid: position 1 contains a and position 3 does not.
+1-3 b: cdefg is invalid: neither position 1 nor position 3 contains b.
+2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.
+How many passwords are valid according to the new interpretation of the policies?
+
+
+------------------------------------------------
+
+The rules for this one have slightly changed.
+
+We still want the number of valid passwords, but the condition is now that the range given is actually two numbers referring to the position of desired characters. So, 1-2 means that the desired letter value must be present at one or the other positions, but not both.
+
+### Problem type:
+- Searching for data
+- Pattern matching
+
+### Assumptions:
+- We will probably stick with the same datatype we chose in part 1, but, had we known, we might not have used a range?
+
+### DataType:
+- Array of arrays
+
+### Initial Thoughts:
+We have to work with a conditional now where:
+- if the desired value is in both positions it is invalid
+- elsif it is in position a or b it is valid
+- else it is invalid
+
+ORRR we can make a conditional that is like:
+(it is in a or b) && (it is NOT in a && b)
