@@ -69,7 +69,7 @@ If the transversing becomes over 3 down 2, then we would want to add a counter o
 ## Initial thoughts
 For now, because the slope is over 3 down 1, we really only have to look at the run (x value) and not so much the rise (y value going down). So, we would only have to iterate through the array.
 
-We always start at (1,1)
+We always start at (0,0)
 
 We could iterate over the array, have a counter that keeps track of what row we're on.
 We could keep track of the number of times we have to multiply the row from the following equation:
@@ -79,9 +79,9 @@ We could keep track of the number of times we have to multiply the row from the 
 # Pseudo code
 We will have an if statement to figure out which rows to check:
 We should have a
-We should only check the row if (row - 1) % y == 0
+We should only check the row if row % y == 0
 Number of times each row needs to be repeated = (row * x)/size of row
-Then we are going to check the value at the coordinate (row - 1) * x
+Then we are going to check the value at the coordinate row * x
 If that value == # then += 1 tree count
 
-So += 1 tree count if (row - 1) % y == 0 && row[(row - 1) * x] == "X"
+So += 1 tree count if (row) % y == 0 && row[(row) * x] == "X"
