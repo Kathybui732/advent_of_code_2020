@@ -80,8 +80,8 @@ We could keep track of the number of times we have to multiply the row from the 
 We will have an if statement to figure out which rows to check:
 We should have a
 We should only check the row if row % y == 0
-Number of times each row needs to be repeated = (row * x)/size of row
+Number of times each row needs to be repeated = row * ((row # * x) + 1/size of row)
 Then we are going to check the value at the coordinate row * x
 If that value == # then += 1 tree count
 
-So += 1 tree count if (row) % y == 0 && row[(row) * x] == "X"
+So += 1 tree count if (row #) % y == 0 && row[(row #) * x] == "X"
